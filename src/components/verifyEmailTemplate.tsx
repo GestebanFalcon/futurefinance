@@ -1,5 +1,5 @@
 export const VerifyEmailTemplate = ({ link }: { link: string }) => {
     return (
-        <p>gangster gangster... heh.... i'm almsot <em>Too</em> cool for school {"B)"}</p>
+        <p>Verify your email <a href={link}>Here</a><br />Or copy and paste the following link into your browser: {link}</p>
     )
 }
