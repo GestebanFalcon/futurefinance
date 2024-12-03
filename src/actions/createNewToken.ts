@@ -5,7 +5,7 @@ import generateToken from "@/lib/drizzy/queries/tokens/generateToken";
 import { sendVerifyEmail } from "@/lib/resend";
 import { redirect } from "next/navigation";
 
-/** Action to be used to both create new email verification token and send the user a new verification email in order to verify their account */
+/** Server Action -- Both generates a new verification token for a user and sends a verification email to verify using said token. */
 export default async function createNewToken(): Promise<{ error?: string, success?: string }> {
 
     const session = await auth();

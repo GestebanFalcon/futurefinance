@@ -4,7 +4,7 @@ import getUserByEmail from "@/lib/drizzy/queries/users/getUserByEmail";
 import updateUser from "@/lib/drizzy/queries/users/updateUser";
 
 
-/** Verify the user's email associated with the given token string
+/** Server Action -- Verify the user's email associated with the given token string.
  *  Returns an optionally usable redirect link associated with a given error
  */
 export const verifyToken = async (token: string): Promise<{ error?: string, success?: string, redirect?: string }> => {
