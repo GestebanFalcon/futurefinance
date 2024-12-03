@@ -14,14 +14,14 @@ export const verifyToken = async (token: string): Promise<{ error?: string, succ
 
     // If no token with the given token string exists
     if (!verificationToken) {
-        return { error: "Invalid token", redirect: "/auth/verify" };
+        return { error: "Invalid token", redirect: "/verify" };
     }
 
 
     // If the token is expired
     const currentDate = new Date();
     if (verificationToken.expires < currentDate) {
-        return { error: "Expired", redirect: "/auth/verify" };
+        return { error: "Expired", redirect: "/verify" };
     }
 
     const email = verificationToken.email;
@@ -30,7 +30,7 @@ export const verifyToken = async (token: string): Promise<{ error?: string, succ
 
     // if no user referenced by the token (for whatever reason) doesn't exist
     if (!user) {
-        return { error: "User does not exist", redirect: "/auth/register" };
+        return { error: "User does not exist", redirect: "/register" };
     }
 
 

@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/lib/drizzy/db";
 import { accounts, users } from "@/lib/drizzy/schema/users";
+import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id";
 import { config } from "dotenv";
 import Credentials from "next-auth/providers/credentials";
 import getUserByEmail from "./queries/users/getUserByEmail";
@@ -16,9 +17,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         accountsTable: accounts,
     }),
     session: {
-        strategy: "jwt"
+        strategy: "database"
     },
     providers: [
+        MicrosoftEntraID,
         Credentials({
             credentials: {
                 email: {},
@@ -60,6 +62,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
             const user = await getUserById(id);
 
+            if (user.email) token.email = user.email;
+            if (user.name) token.name = user.name;
+
+
             return token;
 
         },
@@ -67,7 +73,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             if (token.sub && session.user) {
                 session.user.id = token.sub as string;
             }
-
+            console.log(session);
             return session;
         }
     }

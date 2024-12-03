@@ -10,7 +10,7 @@ export default async function createNewToken(): Promise<{ error?: string, succes
 
     const session = await auth();
     if (!session?.user?.email) {
-        redirect("/auth/login");
+        redirect("/login");
     }
 
     const token = await generateToken(session.user.email);
