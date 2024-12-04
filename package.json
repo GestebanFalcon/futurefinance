@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "drizzle-kit migrate",
+    "push": "drizzle-kit push",
+    "update": "npm run migrate && npm run push"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
