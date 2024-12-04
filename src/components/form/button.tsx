@@ -1,13 +1,6 @@
 "use client"
-
-import { Roboto } from "next/font/google"
 import { MouseEventHandler, ReactNode } from "react"
-
-const roboto = Roboto({
-    weight: ["300", "400", "500", "700", "900"],
-    subsets: ['latin']
-
-})
+import { roboto } from "@/fonts/fonts"
 
 /** Styled button component with optionss for class overwrites. Behaves almost exactly like a normal button */
 export default function Button({ type, onClick, children, className, isCaps }: {
