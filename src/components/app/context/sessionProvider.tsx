@@ -8,8 +8,6 @@ const SessionContext = createContext<Session | null | undefined>(undefined);
 /** Global react context provider to share session across client/session component boundary */
 export default function SessionProvider({ session, children }: { session: Session | null, children: ReactNode }) {
 
-
-
     return (
         <SessionContext.Provider value={session}>
             {children}

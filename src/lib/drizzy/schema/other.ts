@@ -1,4 +1,4 @@
-import { pgTable, text, decimal, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, decimal, timestamp, boolean } from "drizzle-orm/pg-core";
 import { users } from "./users";
 
 export const bankAccounts = pgTable('bank_account', {
@@ -6,10 +6,15 @@ export const bankAccounts = pgTable('bank_account', {
         .primaryKey()
         .$defaultFn(() => crypto.randomUUID()),
     name: text('name').notNull(),
-    balance: decimal('balance'),
+    type: text('type'),
+    balance: decimal('balance')
+        .$type<number>()
+        .notNull(),
     userId: text('user_id')
         .references(() => users.id)
-        .notNull()
+        .notNull(),
+    default: boolean('default')
+        .notNull(),
 });
 
 export const transactions = pgTable("transaction", {
@@ -17,12 +22,17 @@ export const transactions = pgTable("transaction", {
         .primaryKey()
         .$defaultFn(() => crypto.randomUUID()),
     location: text('location'),
-    category: text('category'),
+    category: text('category')
+        .notNull(),
     bankAccountId: text('bank_account_id')
         .references(() => bankAccounts.id)
         .notNull(),
     date: timestamp('date')
+        .notNull(),
 
+    value: decimal('value')
+        .$type<number>()
+        .notNull()
 })
 
 

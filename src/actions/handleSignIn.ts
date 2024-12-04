@@ -10,12 +10,14 @@ export default async function handleSignIn(formData: FormData) {
         password: formData.get('password')
     });
 
+    //Reload with an error message if the data formatting is incorrect
     if (!validatedFields.success) {
         redirect("/login?error=invalid");
     }
 
     const { email, password } = validatedFields.data;
 
+    //Attempt to sign in and reload with an error message if the results are incorrect
     try {
         await signIn("credentials", {
             email,
@@ -23,7 +25,6 @@ export default async function handleSignIn(formData: FormData) {
             redirectTo: "/app/settings"
         });
     } catch (error) {
-        console.error(error);
         if (isRedirectError(error)) {
             throw error;
         }

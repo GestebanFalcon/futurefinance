@@ -6,7 +6,7 @@ import { Menu, MenuItem } from "@mui/material"
 import { Session } from "next-auth";
 import Link from "next/link";
 import { useState } from "react";
-import { useSession } from "../sessionProvider"
+import { useSession } from "../app/context/sessionProvider"
 
 export default function ProfileButton({ session }: { session: Session | null }) {
 
@@ -46,7 +46,7 @@ export default function ProfileButton({ session }: { session: Session | null }) 
                     horizontal: 'right',
                 }}
             >
-                <MenuItem onClick={handleClose}><Link href="/app/user/profile">View Profile</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href="/app/settings">View Profile</Link></MenuItem>
                 {!session?.user?.emailVerified && <MenuItem onClick={handleClose}><Link href="/verify">Verify Email</Link></MenuItem>}
                 <MenuItem onClick={handleClose}><button onClick={handleSignOut} className="signOutButton">Sign Out</button></MenuItem>
 
