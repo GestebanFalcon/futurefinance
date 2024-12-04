@@ -27,7 +27,7 @@ export const sendVerifyEmail = async ({ to, token }: { to: string, token: string
     const res = await sendEmail({
         to,
         subject: "Verify Email",
-        content: VerifyEmailTemplate({ link: `${process.env.SERVER_URL}/auth/verify?token=${token}` })
+        content: VerifyEmailTemplate({ link: `${process.env.SERVER_URL}/verify/${token}` })
     });
     return res;
 } 
