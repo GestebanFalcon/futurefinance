@@ -34,7 +34,7 @@ export default function Page() {
             if (res.success) {
                 setSuccess(res.success + ": redirecting...");
                 setTimeout(() => {
-                    router.push("/user/dashboard");
+                    router.push("/app/dashboard");
                 }, 1000)
             }
             if (res.redirect) {
@@ -43,7 +43,7 @@ export default function Page() {
 
         } catch (err) {
             setError("Something went wrong");
-            setRedirect("/auth/verify");
+            setRedirect("/verify");
         }
         setIsLoading(false);
     }, []);

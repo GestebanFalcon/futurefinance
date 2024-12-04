@@ -62,13 +62,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
             if (user.email) token.email = user.email;
             if (user.name) token.name = user.name;
-
+            if (user.emailVerified) token.emailVerified = user.emailVerified;
 
             return token;
 
         },
         session({ token, session }) {
-            if (token.sub) { session.user.id = token.sub }
+            if (token.sub) { session.user.id = token.sub };
+            if (token.emailVerified) { session.user.emailVerified = token.emailVerified };
             return session;
         }
     }

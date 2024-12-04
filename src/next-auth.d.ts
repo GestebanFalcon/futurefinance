@@ -2,7 +2,8 @@ import { DefaultSession } from "next-auth";
 import { User } from "next-auth";
 
 export type ExtendedUser = DefaultSession["user"] & {
-
+    id: string,
+    emailVerified: Date
 };
 
 declare module "next-auth" {
@@ -11,5 +12,13 @@ declare module "next-auth" {
         user: ExtendedUser
     }
 
+}
+import { JWT } from "next-auth/jwt";
 
+declare module "next-auth/jwt" {
+
+    interface JWT {
+        emailVerified: Date
+
+    }
 }

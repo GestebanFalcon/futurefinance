@@ -42,14 +42,14 @@ export default function Page() {
                     {success && (
                         <>
                             <p>{success}</p>
-                            <Button className="bg-lime-500 hover:bg-lime-700 mt-4" isCaps>Send Again?</Button>
+                            <Button className="bg-lime-500 hover:bg-lime-700 mt-4" isCaps onClick={handleCreateToken}>Send Again?</Button>
                         </>
                     )}
 
                     {error && (
                         <>
                             <p>{error}</p>
-                            <Button className="bg-red-500 hover:bg-red-700 mt-4" isCaps>Try Again?</Button>
+                            <Button className="bg-red-500 hover:bg-red-700 mt-4" isCaps onClick={handleCreateToken}>Try Again?</Button>
                         </>
                     )}
                 </>
