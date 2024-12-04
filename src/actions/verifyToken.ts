@@ -21,7 +21,7 @@ export const verifyToken = async (token: string): Promise<{ error?: string, succ
     // If the token is expired
     const currentDate = new Date();
     if (verificationToken.expires < currentDate) {
-        return { error: "Expired", redirect: "/verify" };
+        return { error: "Token expired", redirect: "/verify" };
     }
 
     const email = verificationToken.email;

@@ -25,11 +25,11 @@ export default function ProfileButton({ session }: { session: Session | null }) 
     return (
         <>
             <p></p>
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className="h-full flex items-center mr-16">
                 {image ? (
                     <img src={image} className="profilePic" />
                 ) : (
-                    <AccountBox color="primary" className="icon"></AccountBox>
+                    <AccountBox className=" text-emerald-600 text-5xl"></AccountBox>
                 )}
 
             </button>
@@ -46,8 +46,8 @@ export default function ProfileButton({ session }: { session: Session | null }) 
                     horizontal: 'right',
                 }}
             >
-                <MenuItem onClick={handleClose}><Link href="/user/dashboard">View Profile</Link></MenuItem>
-                <MenuItem onClick={handleClose}><Link href="/auth/verify">Verify Email</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href="/app/user/profile">View Profile</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href="/verify">Verify Email</Link></MenuItem>
                 <MenuItem onClick={handleClose}><button onClick={handleSignOut} className="signOutButton">Sign Out</button></MenuItem>
 
             </Menu>

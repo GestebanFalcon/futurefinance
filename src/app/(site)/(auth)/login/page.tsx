@@ -15,8 +15,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ [
             <Heading>Sign In</Heading>
             <form className="flex flex-col gap-4 items-center" action={handleSignIn}>
                 <TextField label="Email" name="email" />
-                <TextField label="Password" name="password" />
-                <Button type="submit">Sign In</Button>
+                <TextField label="Password" name="password" type="password" />
+                <Button className="mt-4" type="submit">Sign In</Button>
                 {error === "invalid" && <p>Invalid data</p>}
                 {error === "incorrect" && <p>Incorrect email or password</p>}
             </form>

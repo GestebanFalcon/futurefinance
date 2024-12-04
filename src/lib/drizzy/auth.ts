@@ -17,7 +17,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         accountsTable: accounts,
     }),
     session: {
-        strategy: "database"
+        strategy: "jwt"
     },
     providers: [
         MicrosoftEntraID,
@@ -28,8 +28,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             },
             authorize: async (credentials) => {
                 const { email, password } = credentials;
-
-                console.log(`${email} - ${password}`);
 
                 if (typeof email !== "string" || typeof password !== "string") {
                     throw new Error("Invalid credentials");
@@ -69,11 +67,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return token;
 
         },
-        async session({ token, session }) {
-            if (token.sub && session.user) {
-                session.user.id = token.sub as string;
-            }
-            console.log(session);
+        session({ token, session }) {
+            if (token.sub) { session.user.id = token.sub }
             return session;
         }
     }

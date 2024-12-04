@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^6.1.9",
+    "@mui/material": "^6.1.9",
     "@neondatabase/serverless": "^0.10.3",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",

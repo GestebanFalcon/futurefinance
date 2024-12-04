@@ -3,9 +3,6 @@ import localFont from "next/font/local";
 import { Poppins } from "next/font/google"
 import "./globals.css";
 import Navbar from "@/components/navigation/navbar";
-import SessionProvider from "@/components/sessionProvider";
-import { auth } from "@/lib/drizzy/auth";
-
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ['latin']

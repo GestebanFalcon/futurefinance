@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ [
                 <TextField label="Name" name="name" type="text" />
                 <TextField label="Email" name="email" type="email" />
                 <TextField label="Password" name="password" type="password" />
-                <Button type="submit">Register</Button>
+                <Button className="mt-4" type="submit">Register</Button>
                 {error === "invalid" && <p>Invalid data</p>}
                 {error === "incorrect" && <p>Incorrect email or password</p>}
             </form>
