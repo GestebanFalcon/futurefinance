@@ -20,7 +20,7 @@ export default async function handleSignIn(formData: FormData) {
         await signIn("credentials", {
             email,
             password,
-            redirectTo: "/"
+            redirectTo: "/app/settings"
         });
     } catch (error) {
         console.error(error);
