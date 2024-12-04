@@ -47,7 +47,7 @@ export default function ProfileButton({ session }: { session: Session | null }) 
                 }}
             >
                 <MenuItem onClick={handleClose}><Link href="/app/user/profile">View Profile</Link></MenuItem>
-                <MenuItem onClick={handleClose}><Link href="/verify">Verify Email</Link></MenuItem>
+                {!session?.user?.emailVerified && <MenuItem onClick={handleClose}><Link href="/verify">Verify Email</Link></MenuItem>}
                 <MenuItem onClick={handleClose}><button onClick={handleSignOut} className="signOutButton">Sign Out</button></MenuItem>
 
             </Menu>
