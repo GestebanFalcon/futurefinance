@@ -44,7 +44,10 @@ export const createTransactionSchema = object({
 })
 
 export const editBankAccountSchema = object({
-
+    name: string({ required_error: "Name is required" })
+        .min(1, "Name is required"),
+    type: string()
+        .optional()
 })
 
 export const getTransactionsSchema = object({
