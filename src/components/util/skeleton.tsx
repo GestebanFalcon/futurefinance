@@ -1,6 +1,6 @@
 export default function Skeleton() {
     return (
-        <div className=" rounded-lg bg-zinc-500 animate-pulse w-full h-full">
+        <div className=" bg-zinc-400 animate-pulse w-full h-full">
         </div>
     )
 }
