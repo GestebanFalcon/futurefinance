@@ -1,5 +1,5 @@
 "use client"
-import BankAccountForm from "@/components/app/bankAccountForm";
+import BankAccountForm from "@/components/app/forms/bankAccountForm";
 import { useBankAccounts } from "@/components/app/context/bankAccountsProvider";
 import { SelectBankAccount } from "@/lib/drizzy/schema/other";
 import { Add } from "@mui/icons-material";

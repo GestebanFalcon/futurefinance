@@ -21,7 +21,7 @@ export const transactions = pgTable("transaction", {
     id: text('id')
         .primaryKey()
         .$defaultFn(() => crypto.randomUUID()),
-    location: text('location'),
+    source: text('source'),
     category: text('category')
         .notNull(),
     bankAccountId: text('bank_account_id')

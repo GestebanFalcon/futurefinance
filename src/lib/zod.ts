@@ -43,3 +43,12 @@ export const createTransactionSchema = object({
 
 })
 
+export const editBankAccountSchema = object({
+
+})
+
+export const getTransactionsSchema = object({
+    id: string({ required_error: "Id is required" })
+        .min(36, "Must be a valid UUID")
+        .max(36, "Must be a valid UUID")
+})

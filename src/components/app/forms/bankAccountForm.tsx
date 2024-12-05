@@ -5,9 +5,9 @@ import Container from "@/components/form/container";
 import Heading from "@/components/form/heading";
 import { Dialog } from "@mui/material";
 import { useCallback, useState } from "react"
-import TextField from "../form/textField";
-import Button from "../form/button";
-import Spinner from "../util/spinner";
+import TextField from "../../form/textField";
+import Button from "../../form/button";
+import Spinner from "../../util/spinner";
 import { SelectBankAccount } from "@/lib/drizzy/schema/other";
 
 /** Component -- Form to handle bank account creation.
