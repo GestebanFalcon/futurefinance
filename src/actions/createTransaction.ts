@@ -4,9 +4,9 @@ import getBankAccountById from "@/lib/drizzy/queries/bankAccounts/getBankAccount
 import insertTransaction from "@/lib/drizzy/queries/transactions/insertTransaction";
 import { InsertTransaction } from "@/lib/drizzy/schema/other";
 
-
-
 export default async function createTransaction(data: InsertTransaction) {
+
+    //Monetary values stored as cents
 
     //Verify bank account exists
     const bankAccount = await getBankAccountById(data.bankAccountId);

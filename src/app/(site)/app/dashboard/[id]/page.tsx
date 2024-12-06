@@ -1,12 +1,16 @@
 "use client"
 import { useBankAccounts } from "@/components/app/context/bankAccountsProvider";
 import AccountBar from "@/components/app/dashboard/accountBar";
+import ChartSpace from "@/components/app/dashboard/charts/chartSpace";
+import FilterBar from "@/components/app/dashboard/charts/filterBar";
 import LoadingSkeleton from "@/components/app/dashboard/loadingSkeleton";
 import TransactionForm from "@/components/app/forms/transactionForm";
 import Skeleton from "@/components/util/skeleton";
 import { SelectBankAccount, SelectTransaction } from "@/lib/drizzy/schema/other";
 import { useParams, useRouter } from "next/navigation"
 import { useEffect, useMemo, useState } from "react";
+
+
 
 export default function Page() {
     const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +44,7 @@ export default function Page() {
 
             setIsLoading(false);
         }
-        fetchTransactions()
+        fetchTransactions();
 
     }, [])
 
@@ -58,13 +62,11 @@ export default function Page() {
 
                                 <AccountBar />
 
-                                <TransactionForm />
+                                <TransactionForm setTransactions={setTransactions} transactions={transactions} />
 
                             </div>
-                            <div className="flex-grow flex flex-col gap-8">
-                                <section className=" w-full bg-zinc-100 shadow-sm h-32"></section>
-                                <section className=" flex-grow bg-zinc-100 shadow-sm w-full"></section>
-                            </div>
+                            <ChartSpace />
+
                         </>
                     )}
                 </>
