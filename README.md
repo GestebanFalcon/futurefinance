@@ -1,3 +1,8 @@
+This app serves as the FBLA coding and programming project for the 2024-2025 school year
+It was constructed by Gustavo Falcon, Dylan Rubio, and Giuliano Mercado from School for Advanced Studies: Wolfson
+The website is hosted on the domain https://futurefinance-olive.vercel.app
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
