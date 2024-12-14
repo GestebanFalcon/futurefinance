@@ -47,7 +47,7 @@ export default function TransactionForm({ setTransactions, transactions }: { set
     }
 
     return (
-        <DashContainer className="flex-grow">
+        <DashContainer className="flex-grow flex flex-col">
             <h1 className="text-xl">Add Transaction</h1>
             <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
                 <span className="flex gap-2 flex-row">

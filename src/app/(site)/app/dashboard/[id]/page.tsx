@@ -2,7 +2,7 @@
 import { useBankAccounts } from "@/components/app/context/bankAccountsProvider";
 import AccountBar from "@/components/app/dashboard/accountBar";
 import ChartSpace from "@/components/app/dashboard/charts/chartSpace";
-import FilterBar from "@/components/app/dashboard/charts/filterBar";
+import FilterBar from "@/components/app/dashboard/charts/chartPicker";
 import LoadingSkeleton from "@/components/app/dashboard/loadingSkeleton";
 import TransactionForm from "@/components/app/forms/transactionForm";
 import Skeleton from "@/components/util/skeleton";
@@ -19,7 +19,6 @@ export default function Page() {
     const [transactions, setTransactions] = useState<SelectTransaction[]>([]);
     const router = useRouter();
 
-
     useEffect(() => {
         if (!bankAccount) {
             router.push("/app/dashboard");
@@ -29,6 +28,7 @@ export default function Page() {
             try {
                 const res = await fetch(`/api/bankAccount/${bankAccount?.id || "null"}/getTransactions`);
                 const body = await res.json();
+                console.log(body);
                 if (body.error) {
                     setError(error)
                 }
@@ -57,7 +57,6 @@ export default function Page() {
 
                     {(isLoading || !bankAccount) ? (<LoadingSkeleton />) : (
                         <>
-                            {transactions.map((transaction) => (<p>{transaction.value}</p>))}
                             <div className="flex flex-col h-full gap-8 mb-8 ">
 
                                 <AccountBar />
@@ -65,7 +64,7 @@ export default function Page() {
                                 <TransactionForm setTransactions={setTransactions} transactions={transactions} />
 
                             </div>
-                            <ChartSpace />
+                            <ChartSpace setTransactions={setTransactions} transactions={transactions} />
 
                         </>
                     )}

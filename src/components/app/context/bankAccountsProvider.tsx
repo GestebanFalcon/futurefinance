@@ -19,7 +19,8 @@ export default function BankAccountsProvider({ initialBankAccounts, children }: 
     const params = useParams();
     const id = params.id;
 
-    const bankAccount = useMemo(() => bankAccounts.find((account) => (id === account.id)), [bankAccounts]);
+    const bankAccount = useMemo(() => bankAccounts.find((account) => (id === account.id)), [bankAccounts, params]);
+
 
     const setBankAccount = useCallback((newAccount: SelectBankAccount) => {
         setBankAccounts(bankAccounts.map((account) => (

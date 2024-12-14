@@ -1,6 +1,7 @@
 import { auth } from "@/lib/drizzy/auth";
 import getBankAccountById from "@/lib/drizzy/queries/bankAccounts/getBankAccountById";
 import getTransactionById from "@/lib/drizzy/queries/transactions/getTransactionById";
+import getTransactionsByBankAccountId from "@/lib/drizzy/queries/transactions/getTransactionsByBankAccountId";
 import { getTransactionsSchema } from "@/lib/zod";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -25,7 +26,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const transactions = await getTransactionById(id);
+    const transactions = await getTransactionsByBankAccountId(id);
 
     return NextResponse.json({ transactions });
 
