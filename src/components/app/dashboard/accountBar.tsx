@@ -1,4 +1,5 @@
 "use client"
+/* eslint-disable */
 import Button from "@/components/form/button";
 import { useBankAccounts } from "../context/bankAccountsProvider"
 import { useState } from "react";

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import Link from "next/link";

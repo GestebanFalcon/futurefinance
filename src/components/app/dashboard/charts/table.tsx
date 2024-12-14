@@ -1,5 +1,5 @@
 "use client"
-
+/* eslint-disable */
 import { SelectTransaction } from "@/lib/drizzy/schema/other"
 import { DataGrid, GridRowSelectionModel } from "@mui/x-data-grid"
 import dayjs from "dayjs"

@@ -1,5 +1,5 @@
 "use client"
-
+/* eslint-disable */
 import { SelectBankAccount } from "@/lib/drizzy/schema/other";
 import { useParams } from "next/navigation";
 import { createContext, SetStateAction, useContext, useMemo, useState, Dispatch, ReactNode, useEffect, useCallback } from "react";

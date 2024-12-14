@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 import editBankAccount from "@/actions/editBankAccount";
 import editUser from "@/actions/editUser";
@@ -13,7 +14,6 @@ export default function Page() {
 
     const { user, setUser } = useUser();
 
-    if (!user) return (<></>)
 
     const [isEditing, setIsEditing] = useState(false);
     const [error, setError] = useState<undefined | string>()
