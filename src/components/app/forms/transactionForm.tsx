@@ -56,8 +56,12 @@ export default function TransactionForm({ setTransactions, transactions }: { set
                 </span>
                 <span className="flex gap-2 flex-row">
                     <DashSelect label="Category" value={data.category} onChange={(e) => { setData({ ...data, category: e.target.value }) }}>
-                        <option value="other">Other</option>
-                        <option value="muzz">The Muzz</option>
+                        <option value="Other">Other</option>
+                        <option value="Work">Work</option>
+                        <option value="Food">Food</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Housing">Housing</option>
                     </DashSelect>
                     <DashSelect label="type" value={data.isExpense} onChange={(e) => { setData({ ...data, isExpense: Number(e.target.value) }) }}>
                         <option value={-1}>Expense</option>
